@@ -1,48 +1,50 @@
+
 var services = {
 
-	"Cтрижка": 60,
-	"Гоління": 80,
-	"Миття голови": 100,
+	"Cтрижка": "60 грн",
+	"Гоління": "80 грн",
+	"Миття голови": "100 грн",
 
 };
-services["Розбите скло"] = 200;
-
 
 services.price = function(){
 var total = 0;
 for ( var service in this){
-    if (typeof this[service] === "number") {
-    total += this[service];
+     var price = parseFloat(this[service]);
+     if (!isNaN(price)){
+      total += price ;  
+     }
+    
     }
-}
-
-return total; 
 
 
+return total + " грн"; 
 };
 
 services.minPrice = function (){
     var minPrice = Infinity;
     for (var service in this){
-        if (typeof this[service] === 'number' && this[service] < minPrice){
-            minPrice = this[service];
+        var price = parseFloat(this[service]);
+        if (!isNaN(price) && price < minPrice){
+              minPrice = price;
         }
     }
-    return minPrice
+    return minPrice + " грн"; 
 };
 
 services.maxPrice = function(){
     var maxPrice = - Infinity;
     for ( var service in this){
-        if (typeof this [service] === "number" && this[service] > maxPrice){
-            maxPrice = this[service];
-        }
+      var price = parseFloat(this[service]);
+      if (!isNaN(price) && price > maxPrice ){
+        maxPrice = price;
+      }
     }
-    return maxPrice;
+    return maxPrice + " грн";
 };
 
 
-
-console.log("Загальна вартість послуг: " + services.price() + " грн");
-console.log("Мінімальна вартість послуг: " + services.minPrice() + "грн"); 
-console.log("Максимальна вартість послуг: " + services.maxPrice() + "грн");
+services["Розбите скло"] = "200 грн";
+console.log("Загальна вартість послуг: ", services.price());
+console.log("Мінімальна вартість послуг: ", services.minPrice()); 
+console.log("Максимальна вартість послуг: " , services.maxPrice());
