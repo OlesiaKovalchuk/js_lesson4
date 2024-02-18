@@ -58,12 +58,12 @@ function findValuesByKey(object,companyName){
         for (let i = 0; i < object.partners.length; i++){
             const result = findValuesByKey(object.partners[i],companyName);
             if (result){
-                return result
+                return result;
             }
         }
     }
     return null;
 };
 
-console.log(findValuesByKey(company, 'Клієнт 2'));
+console.log(findValuesByKey(company, 'Клієнт 1.2'));
 
