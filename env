@@ -1,0 +1,10 @@
+[
+  {
+    "name": "qautoDEV",
+    "url": "https://qauto2.forstudy.space/api"
+  },
+  {
+    "name": "qautoPROD",
+    "url": "https://qauto.forstudy.space/api"
+  }
+]
